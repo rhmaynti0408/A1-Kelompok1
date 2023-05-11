@@ -26,7 +26,7 @@ class ProductDetails extends StatelessWidget {
           SizedBox(
             height: _screenSize.height * 0.4,
             width: double.infinity,
-            child: Image.asset(selectedProduct.imageUrl),
+            child: Image.network(selectedProduct.imageUrl),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),

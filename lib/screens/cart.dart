@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:posttest2_068_rahmayanti/provider/cart_provider.dart';
-import 'package:posttest2_068_rahmayanti/provider/order_provider.dart';
-import 'package:posttest2_068_rahmayanti/widgets/cart_item.dart';
+import 'package:a1_1_20/provider/cart_provider.dart';
+import 'package:a1_1_20/provider/order_provider.dart';
+import 'package:a1_1_20/widgets/cart_item.dart';
 
 import '../routes/routes.dart';
 

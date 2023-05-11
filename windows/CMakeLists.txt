@@ -1,10 +1,10 @@
 # Project-level configuration.
 cmake_minimum_required(VERSION 3.14)
-project(posttest2_068_rahmayanti LANGUAGES CXX)
+project(a1_1_20 LANGUAGES CXX)
 
 # The name of the executable created for the application. Change this to change
 # the on-disk name of your application.
-set(BINARY_NAME "posttest2_068_rahmayanti")
+set(BINARY_NAME "a1_1_20")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

@@ -1,13 +1,13 @@
 // ignore_for_file: prefer_const_constructors
-import 'package:posttest2_068_rahmayanti/screens/cart.dart';
+import 'package:a1_1_20/screens/cart.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-
-// import 'package:posttest2_068_rahmayanti/constantst.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:a1_1_20/cubit/auth_cubit.dart';
+import 'package:a1_1_20/constantst.dart';
 import 'package:provider/provider.dart';
-import 'package:posttest2_068_rahmayanti/provider/theme_provider.dart';
+import 'package:a1_1_20/provider/theme_provider.dart';
 import '../widgets/profile_listtile.dart';
-import 'package:posttest2_068_rahmayanti/models/user.dart';
+import 'package:a1_1_20/models/user_sementara.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -16,8 +16,8 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
-String email = User.email;
-String password = User.password;
+String email = User_Sementara.email;
+String password = User_Sementara.password;
 
 bool _darkMode = false;
 
@@ -46,7 +46,7 @@ class _ProfileState extends State<Profile> {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                              image: AssetImage("assets/images/profile.jpg"),
+                              image: NetworkImage("assets/images/profile.jpg"),
                               fit: BoxFit.cover)),
                     ),
                   ),
@@ -82,8 +82,9 @@ class _ProfileState extends State<Profile> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-          CustomListTile("Nama: $email", Icons.person_2_outlined, Icons.circle),
-          CustomListTile("Alamat: $password", Icons.location_on, Icons.circle),
+          CustomListTile(
+              "Email: $email", Icons.person_2_outlined, Icons.circle),
+          // CustomListTile("Alamat: $password", Icons.location_on, Icons.circle),
           InkWell(
             child: CustomListTile(
               "My Cart",
@@ -106,7 +107,7 @@ class _ProfileState extends State<Profile> {
           //   Icons.keyboard_arrow_right_outlined,
           // ),
           SwitchListTile(
-            value: User.darkMode,
+            value: User_Sementara.darkMode,
             title: Text(
               ' Night Mode',
               style: TextStyle(
@@ -123,10 +124,10 @@ class _ProfileState extends State<Profile> {
                   Provider.of<ThemeProvider>(context, listen: false);
 
               setState(() {
-                User.darkMode = newValue;
+                User_Sementara.darkMode = newValue;
               }); // change the variable
 
-              User.darkMode // call the functions
+              User_Sementara.darkMode // call the functions
                   ? themeProvider.setDarkmode()
                   : themeProvider.setLightMode();
             },
@@ -134,47 +135,47 @@ class _ProfileState extends State<Profile> {
             // switchType: SwitchType.material,
             activeColor: Colors.indigo,
           ),
-          // InkWell(
-          //   child: BlocConsumer<AuthCubit, AuthState>(
-          //     listener: (context, state) {
-          //       if (state is AuthInitial) {
-          //         Navigator.pushNamedAndRemoveUntil(
-          //             context, 'login-page', (route) => false);
-          //       } else if (state is AuthFailed) {
-          //         ScaffoldMessenger.of(context).showSnackBar(
-          //           SnackBar(
-          //             backgroundColor: kGreenLightColor,
-          //             content: Text(state.error),
-          //           ),
-          //         );
-          //       }
-          //     },
-          //     builder: (context, state) {
-          //       if (state is AuthLoading) {
-          //         return Center(
-          //           child: CircularProgressIndicator(),
-          //         );
-          //       }
-          //       return ListTile(
-          //         onTap: () {
-          //           context.read<AuthCubit>().signOut();
-          //         },
-          //         title: Text(
-          //           ("Sign out"),
-          //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-          //         ),
-          //         leading: Padding(
-          //           padding: const EdgeInsets.only(left: 8.0),
-          //           child: (Icon(
-          //             Icons.logout,
-          //             size: 25,
-          //           )),
-          //         ),
-          //         tileColor: Colors.grey.shade100,
-          //       );
-          //     },
-          //   ),
-          // ),
+          InkWell(
+            child: BlocConsumer<AuthCubit, AuthState>(
+              listener: (context, state) {
+                if (state is AuthInitial) {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, 'login-page', (route) => false);
+                } else if (state is AuthFailed) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: kGreenLightColor,
+                      content: Text(state.error),
+                    ),
+                  );
+                }
+              },
+              builder: (context, state) {
+                if (state is AuthLoading) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return ListTile(
+                  onTap: () {
+                    context.read<AuthCubit>().signOut();
+                  },
+                  title: Text(
+                    ("Sign out"),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  leading: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: (Icon(
+                      Icons.logout,
+                      size: 25,
+                    )),
+                  ),
+                  tileColor: Colors.grey.shade100,
+                );
+              },
+            ),
+          ),
           // Padding(
           //   padding: EdgeInsets.only(left: 20, top: 15, bottom: 14),
           //   child: Text(
@@ -200,7 +201,7 @@ class _ProfileState extends State<Profile> {
           // SizedBox(height: 10),
           Center(
             child: Text(
-              "Tokonya Rahmayanti v10.9.1",
+              "Bookstore bozzz   v10.9.1",
               style: TextStyle(color: Colors.blueGrey, fontSize: 15),
             ),
           ),

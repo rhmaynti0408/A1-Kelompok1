@@ -1,27 +1,27 @@
-import 'package:flutter/cupertino.dart';
+import 'package:a1_1_20/constantst.dart';
 import 'package:a1_1_20/cubit/auth_cubit.dart';
 import 'package:a1_1_20/cubit/page_cubit.dart';
-import 'package:a1_1_20/constantst.dart';
 import 'package:a1_1_20/widgets/custom_text_form_field.dart';
 import 'package:a1_1_20/widgets/my_button.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:a1_1_20/models/user_sementara.dart';
-import 'package:a1_1_20/routes/routes.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  RegisterPage({Key? key}) : super(key: key);
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
+  final TextEditingController hobiController = TextEditingController(text: '');
+
   @override
   Widget build(BuildContext context) {
     Widget titleSection() {
       return Container(
         margin: EdgeInsets.fromLTRB(defaultMargin, 30, defaultMargin, 44),
         child: Text(
-          "Selamat Datang \n Di Bookstore",
+          "Selamat Datang \n Di BookStore",
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -38,6 +38,11 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextFormField(
+              title: "Nama Lengkap",
+              hintText: "Nama anda",
+              controller: nameController,
+            ),
+            CustomTextFormField(
               title: "Email",
               hintText: "Email anda",
               controller: emailController,
@@ -50,17 +55,10 @@ class LoginPage extends StatelessWidget {
             ),
             BlocConsumer<AuthCubit, AuthState>(
               listener: (context, state) {
-                if (emailController.text == 'admin' &&
-                    passwordController.text == 'admin') {
-                  Navigator.of(context)
-                      .pushReplacementNamed(Routes.userProduct);
-                } else if (state is AuthSuccess) {
+                if (state is AuthSuccess) {
                   context.read<PageCubit>().setPage(0);
                   Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    'main-page',
-                    (route) => false,
-                  );
+                      context, 'main-page', (route) => false);
                 } else if (state is AuthFailed) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -79,9 +77,8 @@ class LoginPage extends StatelessWidget {
 
                 return MyButton(
                   onTap: () {
-                    User_Sementara.email = emailController.text;
-                    User_Sementara.password = passwordController.text;
-                    context.read<AuthCubit>().signIn(
+                    context.read<AuthCubit>().signUp(
+                          nama: nameController.text,
                           email: emailController.text,
                           password: passwordController.text,
                         );
@@ -89,7 +86,7 @@ class LoginPage extends StatelessWidget {
                   margin: EdgeInsets.only(top: 10),
                   width: double.infinity,
                   height: 55,
-                  text: "Masuk",
+                  text: "Daftar",
                 );
               },
             ),
@@ -98,15 +95,15 @@ class LoginPage extends StatelessWidget {
       );
     }
 
-    Widget registerSection() {
+    Widget loginSection() {
       return Container(
         margin: EdgeInsets.only(bottom: 50, top: 30),
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, 'register-page');
+            Navigator.pushNamed(context, 'login-page');
           },
           child: Text(
-            "Belum Memiliki Akun? Daftar",
+            "Sudah Memiliki Akun? Masuk",
             style: lightTextStyle.copyWith(
               fontSize: 16,
               fontWeight: light,
@@ -124,7 +121,7 @@ class LoginPage extends StatelessWidget {
           children: [
             titleSection(),
             formSection(),
-            registerSection(),
+            loginSection(),
           ],
         ),
       ),

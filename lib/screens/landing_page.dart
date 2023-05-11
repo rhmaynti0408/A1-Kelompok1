@@ -1,5 +1,6 @@
+import 'package:a1_1_20/screens/register.dart';
 import 'package:flutter/material.dart';
-import 'package:posttest2_068_rahmayanti/widgets/navigator.dart';
+import 'package:a1_1_20/widgets/navigator.dart';
 
 // enum StatusPesan { sewa, beli }
 
@@ -12,7 +13,7 @@ class LandingPage extends StatelessWidget {
     var tinggi = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Rahmayanti Book Store"),
+        title: const Text("My Book Store"),
         // textTheme: TextTheme(),
       ),
       body: Stack(
@@ -75,7 +76,7 @@ class LandingPage extends StatelessWidget {
                             transitionDuration: const Duration(seconds: 2),
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    NavigatorWidget())
+                                    RegisterPage())
                         // MaterialPageRoute(
                         //     builder: (_) => const NavigatorWidget())
                         );

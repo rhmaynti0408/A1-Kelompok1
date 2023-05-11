@@ -12,3 +12,4 @@ class Product with ChangeNotifier {
       required this.price,
       required this.imageUrl});
 }
+ 

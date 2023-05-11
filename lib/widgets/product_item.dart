@@ -33,7 +33,7 @@ class ProductItems extends StatelessWidget {
                   height: _screenSize.height * 0.135,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(product.imageUrl),
+                        image: NetworkImage(product.imageUrl),
                         fit: BoxFit.contain),
                   ),
                 ),

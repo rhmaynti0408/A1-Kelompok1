@@ -61,7 +61,7 @@ class CartItem extends StatelessWidget {
             leading: Container(
               width: 60,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(imgUrl)),
+                image: DecorationImage(image: NetworkImage(imgUrl)),
               ),
             ),
             title: Text(

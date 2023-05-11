@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "posttest2_068_rahmayanti" "\0"
+            VALUE "FileDescription", "a1_1_20" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "posttest2_068_rahmayanti" "\0"
+            VALUE "InternalName", "a1_1_20" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "posttest2_068_rahmayanti.exe" "\0"
-            VALUE "ProductName", "posttest2_068_rahmayanti" "\0"
+            VALUE "OriginalFilename", "a1_1_20.exe" "\0"
+            VALUE "ProductName", "a1_1_20" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

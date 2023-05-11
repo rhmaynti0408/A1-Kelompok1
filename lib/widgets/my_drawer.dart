@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:posttest2_068_rahmayanti/routes/routes.dart';
+import 'package:a1_1_20/routes/routes.dart';
 
 import 'navigator.dart';
-import 'package:posttest2_068_rahmayanti/screens/profile.dart';
+import 'package:a1_1_20/screens/profile.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class MyDrawer extends StatelessWidget {
             automaticallyImplyLeading: false,
             centerTitle: true,
             title: const Text(
-              "Rahmayanti BookStore",
+              "My BookStore",
               style: TextStyle(fontSize: 22),
             ),
           ),
@@ -59,7 +59,7 @@ class MyDrawer extends StatelessWidget {
               ),
             ),
           ),
-          const Divider()
+          const Divider(),
         ],
       ),
     );

@@ -5,7 +5,7 @@ import '../screens/orders.dart';
 import '../screens/home.dart';
 import '../screens/profile.dart';
 
-// import 'package:posttest2_068_rahmayanti/main%20copy.dart';
+// import 'package:a1_1_20/main%20copy.dart';
 
 class NavigatorWidget extends StatefulWidget {
   const NavigatorWidget({super.key});

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "503688080783",
+    "project_id": "projek-akhir-mobile-20",
+    "storage_bucket": "projek-akhir-mobile-20.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503688080783:android:8939a10ce182e51ec66ffa",
+        "android_client_info": {
+          "package_name": "com.A1_1_20.Bookstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503688080783-70havoghv8tdekd82665uugeh737gjfm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtFCBz5smrmm_ZWTTCeZpizlNSsR-kEsk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503688080783-70havoghv8tdekd82665uugeh737gjfm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,12 @@
-class User {
-  static String email = '';
-  static String password = '';
-  static bool darkMode = false;
+import 'package:equatable/equatable.dart';
 
-  // User({
-  //   required this.email,
-  //   required this.password,
-  // });
+class UserModel extends Equatable {
+  final String id, nama, email;
+
+  UserModel({
+    required this.id,
+    required this.email,
+    required this.nama,
+  });
+  List<Object?> get props => [id, nama, email];
 }
